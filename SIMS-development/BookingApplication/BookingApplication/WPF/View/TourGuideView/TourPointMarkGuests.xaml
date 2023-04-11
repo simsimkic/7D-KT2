@@ -1,0 +1,67 @@
+﻿<Window x:Class="BookingApplication.WPF.View.TourGuideView.TourPointMarkGuests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="TourPointMarkGuests" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <DataGrid x:Name="NotPresentGuestsDataGrid" ItemsSource="{Binding NotPresentGuestTourReservationsDTO}"
+                              SelectedItem="{Binding Path=SelectedTourGuestDTO}"
+                              SelectionMode="Single" CanUserAddRows="False"
+                              AutoGenerateColumns="False" HeadersVisibility="Column" FontSize="13" Width="340" HorizontalAlignment="Center" Margin="0,62,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="Username" Binding="{Binding UserName}" Width="2*"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Group Size" Binding="{Binding TourReservationGroupSize}" Width="2*"/>
+                        <DataGridTemplateColumn Header="Mark Guest" Width="2*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="MarkGuestClick">Mark Guest</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <DataGrid x:Name="PresentGuestsDataGrid" ItemsSource="{Binding PresentGuestTourReservationsDTO }"
+                              SelectedItem="{Binding Path=SelectedTourGuestDTO}"
+                              SelectionMode="Single" CanUserAddRows="False"
+                              AutoGenerateColumns="False" HeadersVisibility="Column" FontSize="13" Width="340" HorizontalAlignment="Center" Margin="0,62,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="Username" Binding="{Binding Username}" Width="2*"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Group Size" Binding="{Binding TourReservationGroupSize}" Width="2*"/>
+                        <DataGridTemplateColumn Header="Unmark Guest" Width="2*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="UnmarkGuestClick">Unmark Guest</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Height="30"  Width="200" Click="SaveClick">Save</Button>
+            <Button Grid.Column="1" Height="30" Width="200" Click="CloseClick">Close</Button>
+        </Grid>
+    </Grid>
+</Window>

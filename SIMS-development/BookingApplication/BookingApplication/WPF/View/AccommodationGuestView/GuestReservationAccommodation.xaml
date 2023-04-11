@@ -1,0 +1,32 @@
+﻿<Window x:Class="BookingApplication.WPF.View.AccommodationGuestView.GuestReservationAccommodation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="RESERVATION" Width="400" Height="400">
+    <Grid Background="#EAEAEA" Margin="10,0,10,7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" MinHeight="29.96"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="3" Text="Start Date" Foreground="#222222" FontSize="16" Margin="10,69,282,233" FontWeight="Bold"/>
+        <DatePicker Name="StartDatePicker" Margin="190,58,20,235" Grid.RowSpan="4"/>
+
+        <TextBlock Grid.Row="3" Text="End Date" Foreground="#222222" FontSize="16" Margin="10,136,282,166" FontWeight="Bold"/>
+        <DatePicker Grid.Row="3" Name="EndDatePicker" Margin="190,131,20,160" RenderTransformOrigin="0.497,1.004"/>
+
+        <TextBlock Grid.Row="3" Text="Number of guests" Foreground="#222222" FontSize="16" Margin="10,208,231,94" FontWeight="Bold"/>
+        <TextBox Grid.Row="3" Name="GuestLimitTextBox" Margin="190,208,20,94"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="170,334,0,0" Grid.RowSpan="2" Width="210">
+            <Button Name="CheckAvailabilityButton" Content="Check Availability" Click="CheckAvailabilityButton_OnClick" Background="#8BC34A" Foreground="White" Margin="5" Height="23"/>
+            <Button Name="ReserveButton" Content="Reserve" Click="ReserveButton_OnClick" Background="#009688" Foreground="White" Margin="5" Height="23"/>
+            <Button Name="CancelButton" Content="Cancel" Click="CancelButton_OnClick" Background="#FF5722" Foreground="White" Margin="5" Height="23"/>
+        </StackPanel>
+    </Grid>
+</Window>

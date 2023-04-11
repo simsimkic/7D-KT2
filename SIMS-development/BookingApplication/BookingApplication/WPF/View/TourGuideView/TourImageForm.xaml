@@ -1,0 +1,21 @@
+﻿<Window x:Class="BookingApplication.WPF.View.TourGuideView.TourImageForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="TourImageForm" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="10,10,10,10">
+            <TextBlock HorizontalAlignment="Left" Width="156" VerticalAlignment="Top" Height="19" Text="Image Url:" Margin="218,10,0,0"/>
+            <TextBox x:Name="urlTxt" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding SelectedThumbnailImage.Url, Mode=TwoWay }" Margin="218,29,0,0" Width="290" Height="33"/>
+            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Click="DisplayImageClick" Margin="218,67,0,0" Width="156" RenderTransformOrigin="0.5,0.5">
+                Display Image
+            </Button>
+            <Image x:Name="imageDisplay" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding SelectedImage.Url, Mode=TwoWay}" Margin="256,105,0,0" Height="175" Width="234"></Image>
+            <Button Margin="256,330,424,35" Width="100" Click="SaveImageClick" >Save</Button>
+            <Button Margin="390,330,290,35" Width="100" Click="CancelClick" >Cancel</Button>
+        </Grid>
+
+    </Grid>
+</Window>

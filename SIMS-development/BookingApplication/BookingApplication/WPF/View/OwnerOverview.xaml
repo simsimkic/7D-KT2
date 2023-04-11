@@ -1,0 +1,52 @@
+﻿<Window x:Class="BookingApplication.WPF.View.OwnerOverview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="OwnerOverview" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="760"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <DataGrid ItemsSource="{Binding Accommodations}"
+                     
+                      IsReadOnly="True" SelectionMode="Single" 
+                  AutoGenerateColumns="False" Height="325" HeadersVisibility="Column" FontSize="13">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="100"/>
+                    <DataGridTextColumn Header="LocationId" Binding="{Binding LocationId}" Width="100"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding AccommodationType}" Width="100"/>
+                    <DataGridTextColumn Header="Max Guests" Binding="{Binding MaxGuests}" Width="100"/>
+                    <DataGridTextColumn Header="Min days for ress" Binding="{Binding MinReservationDays}" Width="120"/>
+                    <DataGridTextColumn Header="Days before cancelling" Binding="{Binding DaysBeforeCancelling}" Width="*"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+
+        <ToolBar Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,532,0">
+            <Button Click="ShowCreateAccommodationForm">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="../Resources/Images/add.png" Width="20" Height="25"/>
+                    <TextBlock Text="Create new accommodation" FontSize="14" VerticalAlignment="Center" Margin="5,0,0,0" />
+                </StackPanel>
+            </Button>
+           
+
+        </ToolBar>
+
+
+    </Grid>
+</Window>

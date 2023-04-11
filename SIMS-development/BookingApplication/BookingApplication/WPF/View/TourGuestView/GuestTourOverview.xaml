@@ -1,0 +1,23 @@
+﻿<Window x:Class="BookingApplication.WPF.View.TourGuestView.GuestTourOverview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="GuestTourOverview" Height="450" Width="800">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <Button Name="OverviewButton" Click="OverviewButton_OnClick">Overview</Button>
+            <Button Name="BookedButton">Booked Tours</Button>
+            <Button Name="CompletedButton">Completed Tours</Button>
+            <Button Name="RequestButton">Request Tours</Button>
+            <Button Name="ComplexRequestButton">Request Complex Tours</Button>
+            <Button Name="VouchersButton">Available Vouchers</Button>
+        </DockPanel>
+        <Frame Name="ToursWindow" NavigationUIVisibility="Hidden"
+               Content="{Binding CurrentPage}">
+        </Frame>
+        </DockPanel>
+        
+</Window>

@@ -1,0 +1,61 @@
+﻿<Window x:Class="BookingApplication.WPF.View.GuestRatingForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="GuestRatingForm" Height="450" Width="800" FontWeight="Bold" FontStyle="Italic">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid  Background="#FFE5E5E5">
+        <Grid Grid.Row="0" Margin="0,10,0,38" HorizontalAlignment="Center" Width="704">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="34*"></ColumnDefinition>
+                <ColumnDefinition Width="69*"></ColumnDefinition>
+                <ColumnDefinition Width="73*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="27,2,82,34" Grid.RowSpan="2" Content="&#xA;&#xA;&#xD;&#xA;Cleanness:"/>
+            <Label Grid.Column="0" Grid.ColumnSpan="2" Margin="0,7,109,174" Grid.Row="1" Grid.RowSpan="2" Content="&#xD;&#xA;&#xD;&#xA;Following rules:"/>
+            <Label Grid.Column="2" Margin="5,10,-16,22" Content="&#xA;Comment:"/>
+
+            <TextBox Grid.Column="2" Height="226" VerticalAlignment="Top" Text="{Binding Path=NewGuestRating.Comment,Mode=OneWayToSource}" Margin="5,69,5,0" Grid.RowSpan="2"/>
+
+            <ComboBox Grid.Row="0" Margin="0,38,56,22" Text="{Binding Path=NewGuestRating.Cleanness, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True }" Grid.Column="1"
+                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,25,56,193" Text="{Binding Path=NewGuestRating.RulesFollowing, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True }"
+                      Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+            </ComboBox>
+
+        </Grid>
+        <Button Content="Save" Click="SaveGuestRate" HorizontalAlignment="Left" Margin="189,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.098,-0.979" Width="87" Height="58"/>
+        <Button Content="Cancel" Click="CancelButton"  HorizontalAlignment="Left" Margin="564,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.163,-0.295" Width="92" Height="58"/>
+
+    </Grid>
+</Window>
